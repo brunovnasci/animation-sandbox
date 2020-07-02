@@ -1,0 +1,119 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 32px;
+        letter-spacing: 1px;
+        margin: 20px 0;
+        color: white;
+    }
+
+    form {
+        margin: 20px 0;
+        background-color: white;
+        padding: 30px 25px;
+        border-radius: 5px;
+        animation: init-form 200ms;
+        overflow: hidden;
+
+        .input-block {
+            margin-bottom: 20px;
+
+            label {
+                font-size: 14px;
+                color: darkslateblue;
+            }
+
+            input {
+                width: 100%;
+                display: block;
+                margin-top: 8px;
+                padding: 7px;
+                font-size: 16px;
+                color: #7159c1;
+                border-radius: 2px;
+                border: 1px solid #ccddef;
+                outline-color: #7159c1;
+
+            }
+
+            &:nth-child(1){
+                animation: init-input 500ms;
+            }
+
+            &:nth-child(2){
+                animation: init-input 400ms;
+                animation-delay: 100ms;
+                animation-fill-mode: backwards;
+            }
+        }
+
+        .btn-login {
+            display: block;
+            min-width: 120px;
+            border: none;
+            background-color: #7159c1;
+            color: white;
+            border-radius: 25px;
+            margin: auto;
+            padding: 7px;
+            animation: init-input 250ms;
+            animation-delay: 250ms;
+            animation-fill-mode: backwards;
+        }
+    }
+
+    .form-hide {
+        animation: submit-form 500ms forwards;
+        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .submit-failed {
+        animation: submit-failed 200ms, init-form paused;
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes init-form {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    } to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes init-input {
+    from {
+        opacity: 0;
+        transform: translateX(-35%);
+    } to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes submit-form {
+    from {
+        transform: translateY(0);
+    } to {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes submit-failed {
+    0% {
+        transform: translateX(0);
+    } 35% {
+        transform: translateX(-15%);
+
+    } 75% {
+        transform: translateX(15%);
+    } 100% {
+        transform: translateX(0);
+    }
+}
