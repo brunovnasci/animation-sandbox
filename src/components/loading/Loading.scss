@@ -1,0 +1,74 @@
+.body{
+    display: flex;
+    background: #f5f5f5;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+
+    .skeleton-loading {
+        margin: 20px;
+        height: 150px;
+        width: 300px;
+        box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        background: white;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -150px;
+            top: 0;
+            height: 100%;
+            width: 150px;
+            background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
+            animation: load 1s infinite;
+            animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+    }
+
+    .circle-loading {
+        position: relative;
+        overflow: hidden;
+        margin-left: 20px;
+        height: 150px;
+        width: 150px;
+        box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
+        background: white;
+        border-radius: 100%;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 200%;
+            width: 50px;
+            left: -50px;
+            top: -35%;
+            transform: rotate(45deg);
+            background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
+            animation: load-cicle 1s infinite;
+            animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+    }
+}
+
+@keyframes load {
+    from {
+        left: -150px;
+    } to {
+        left: 100%;
+    }
+}
+
+@keyframes load-cicle {
+    from {
+        left: -35%;
+        top: -110px;
+    } to {
+        left: 110%;
+    }
+}
